@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { QUESTIONS } from "../../dummyData";
 import Question from "./Question";
 import { useAnswerContext } from "../../context/AnswerContext";
+import AnswerTable from "./AnswerTable";
 
 function DoTest() {
     const [index, setIndex] = useState(0);
@@ -20,6 +21,7 @@ function DoTest() {
                 ))}
             </select>
             <Question question={QUESTIONS[index]} />
+            <AnswerTable ids={QUESTIONS.map((q) => q.id)} answers={answers} />
         </>
     );
 }
