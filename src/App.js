@@ -1,10 +1,8 @@
-import './App.css';
-import Login from './components/auth/Login';
+import "./App.css";
+import Question from "./components/Test/Question";
 
 function App() {
-  return (
-    <Login />
-  );
+    return <Question />;
 }
 
 export default App;
