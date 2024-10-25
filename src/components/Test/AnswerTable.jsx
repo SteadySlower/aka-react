@@ -1,7 +1,7 @@
 import React from "react";
 import { useAnswerContext } from "../../context/AnswerContext";
 
-function AnswerTable({ ids }) {
+function AnswerTable({ ids, onClick }) {
     const { getAnswer } = useAnswerContext();
     const getBodyData = (id) => {
         const answer = getAnswer(id);
@@ -13,7 +13,9 @@ function AnswerTable({ ids }) {
             <thead>
                 <tr>
                     {ids.map((id) => (
-                        <td key={id}>{id + 1}</td>
+                        <td key={id} onClick={() => onClick(id)}>
+                            {id + 1}
+                        </td>
                     ))}
                 </tr>
             </thead>
