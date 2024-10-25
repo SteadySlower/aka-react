@@ -4,7 +4,7 @@ export const CHOICES = ["Apple", "Pear", "Orange", "Grape"];
 export const QUESTION = {
     id: 0,
     passage: LOREM_IPSUM,
-    CHOICES: CHOICES,
+    choices: CHOICES,
 };
 export const QUESTIONS = [...Array(20)].map((_, i) => {
     return {

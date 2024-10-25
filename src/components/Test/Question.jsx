@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { LOREM_IPSUM, CHOICES } from "../../dummyData";
 
-function Question() {
+function Question({ question: { id, passage, choices } }) {
     const [answer, setAnswer] = useState(undefined);
     const handleClick = (index) => {
         if (index === answer) {
@@ -14,11 +13,11 @@ function Question() {
     return (
         <section>
             <div>
-                <h3>빈칸에 들어갈 단어로 적절한 것을 고르시오</h3>
-                <p>{LOREM_IPSUM}</p>
+                <h3>{id + 1}. 빈칸에 들어갈 단어로 적절한 것을 고르시오</h3>
+                <p>{passage}</p>
             </div>
             <ul>
-                {CHOICES.map((choice, index) => (
+                {choices.map((choice, index) => (
                     <li key={index} onClick={() => handleClick(index)}>
                         {choice}
                     </li>
