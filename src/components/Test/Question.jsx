@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import { useAnswerContext } from "../../context/AnswerContext";
 
 function Question({ question: { id, passage, choices } }) {
-    const [answer, setAnswer] = useState(undefined);
+    const { getAnswer, setAnswer } = useAnswerContext();
     const handleClick = (index) => {
-        if (index === answer) {
-            setAnswer(undefined);
-            return;
-        }
-        setAnswer(index);
+        setAnswer(id, index);
     };
 
     return (
@@ -23,7 +20,7 @@ function Question({ question: { id, passage, choices } }) {
                     </li>
                 ))}
             </ul>
-            {answer !== undefined && `선택된 답: ${answer + 1}`}
+            {getAnswer(id) !== undefined && `선택된 답: ${getAnswer(id) + 1}`}
         </section>
     );
 }

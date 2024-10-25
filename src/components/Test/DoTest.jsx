@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { QUESTIONS } from "../../dummyData";
 import Question from "./Question";
+import { useAnswerContext } from "../../context/AnswerContext";
 
 function DoTest() {
     const [index, setIndex] = useState(0);
     const handleSelect = (e) => {
         setIndex(e.target.value);
     };
+    const { answers } = useAnswerContext();
 
     return (
         <>
