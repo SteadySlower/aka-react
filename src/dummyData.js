@@ -19,3 +19,15 @@ export const TESTS = [...Array(20)].map((_, i) => {
         id: i,
     };
 });
+export const USERS = [
+    {
+        id: "akastudent",
+        password: "test1234",
+        isTeacher: false,
+    },
+    {
+        id: "akateacher",
+        password: "test1234",
+        isTeacher: true,
+    },
+];

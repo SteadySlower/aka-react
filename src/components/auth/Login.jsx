@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useAuthContext } from "../../context/AuthContext";
 
 function Login() {
     const [id, setId] = useState("");
@@ -11,13 +12,19 @@ function Login() {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(id, password);
+        login(id, password);
     };
+    const { error, login } = useAuthContext();
 
     return (
         <form onSubmit={handleSubmit}>
             <input type="text" placeholder="ID" onChange={handleIdChange} />
-            <input type="text" placeholder="Password" onChange={handlePasswordChange} />
+            <input
+                type="text"
+                placeholder="Password"
+                onChange={handlePasswordChange}
+            />
+            {error && <p>{error}</p>}
             <button>Login</button>
         </form>
     );
