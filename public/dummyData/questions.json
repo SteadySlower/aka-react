@@ -2,6 +2,7 @@
     {
         "id": 0,
         "number": 1,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This animal is a unique mammal known for its towering height and graceful movements. It has an exceptionally long neck that allows it to reach the leaves of tall trees in the African savannas, which is its primary habitat. Unlike most animals, its neck has the same number of vertebrae as humans, yet they are much larger in size. The animal’s coat is covered in distinctive patches or spots, which can vary in shape and pattern depending on the region. Its long legs and strong hooves make it well-suited for life on the open plains. Despite its size, this animal can run quickly to escape from predators, although it primarily relies on its height for a better view of its surroundings. What animal is this?",
         "choices": ["Elephant", "Lion", "Giraffe", "Zebra"],
         "answer": 2
@@ -9,6 +10,7 @@
     {
         "id": 1,
         "number": 2,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This plant is known for its vibrant green, sword-shaped leaves that grow in a rosette pattern and can thrive in dry environments. Its leaves are thick and fleshy, storing water to help it survive in arid climates. The gel within its leaves is commonly used for medicinal purposes, such as soothing skin irritations and healing burns. Native to the Arabian Peninsula, this plant has spread worldwide due to its many uses in health and skincare. It is a common addition to homes as a decorative, easy-to-care-for plant. What is this plant?",
         "choices": ["Cactus", "Aloe Vera", "Rose", "Lavender"],
         "answer": 1
@@ -16,6 +18,7 @@
     {
         "id": 2,
         "number": 3,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This bird is often associated with wisdom and knowledge due to its calm, observant demeanor. It is a nocturnal creature, meaning it is most active at night and has large, forward-facing eyes that help it see in low-light conditions. With its keen senses, it is a skilled hunter, feeding on small mammals, insects, and other birds. Its feathers are adapted for silent flight, which allows it to approach prey without being heard. Found in a wide range of habitats, from forests to urban areas, this bird is recognized by its distinct hooting sound. What bird is this?",
         "choices": ["Eagle", "Hawk", "Owl", "Parrot"],
         "answer": 2
@@ -23,6 +26,7 @@
     {
         "id": 3,
         "number": 4,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This large mammal is one of the most recognizable animals in the ocean. Known for its friendly and curious nature, it is highly intelligent and often interacts with humans. It has a streamlined body and a dorsal fin, which helps it navigate through water. The animal breathes through a blowhole on top of its head and can often be seen leaping out of the water. It communicates using a variety of clicks, whistles, and other sounds. This creature is part of a group called cetaceans and is known for living in pods. What animal is this?",
         "choices": ["Shark", "Dolphin", "Seal", "Penguin"],
         "answer": 1
@@ -30,6 +34,7 @@
     {
         "id": 4,
         "number": 5,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This fruit is tropical and widely recognized by its spiky green skin and sweet, juicy yellow flesh. It grows on a short, stocky plant close to the ground and takes about a year to mature. Originating from South America, it has become popular worldwide and is used in a variety of culinary dishes, from savory to sweet. The fruit is a good source of vitamin C and contains bromelain, an enzyme known to aid digestion. It has a crown of green leaves on top, making it easily distinguishable from other fruits. What is this fruit?",
         "choices": ["Pineapple", "Mango", "Papaya", "Banana"],
         "answer": 0
@@ -37,6 +42,7 @@
     {
         "id": 5,
         "number": 6,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This marine animal is known for its eight long arms covered in suckers. It is highly intelligent and can solve simple puzzles and open jars. This animal has a soft body and can change color to blend into its surroundings, thanks to special pigment cells in its skin. It is a master of camouflage and often hides in coral reefs or rocky crevices to avoid predators. When threatened, it can release a cloud of ink to obscure the view of a predator, allowing it to escape. What is this creature?",
         "choices": ["Squid", "Crab", "Octopus", "Jellyfish"],
         "answer": 2
@@ -44,6 +50,7 @@
     {
         "id": 6,
         "number": 7,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This fruit is small, round, and typically red, with a juicy, sweet interior. It grows in clusters on vines and is widely used in both cooking and salads. Although often considered a vegetable due to its culinary uses, it is technically a fruit. Originating from South America, it has become a staple in cuisines worldwide. This fruit is rich in vitamins A and C and contains antioxidants like lycopene, which is beneficial for health. It is versatile and can be eaten raw or cooked. What fruit is this?",
         "choices": ["Apple", "Cherry", "Tomato", "Strawberry"],
         "answer": 2
@@ -51,6 +58,7 @@
     {
         "id": 7,
         "number": 8,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This insect is known for its distinctive black and orange wings, which make it easily recognizable. It undergoes a life cycle that includes four stages: egg, larva, pupa, and adult. During migration, it travels thousands of miles to find a warmer climate. This insect is essential to the ecosystem as it helps pollinate flowers. It is often found in gardens and meadows where it feeds on nectar. This particular species is admired for its beauty and is commonly associated with transformation and growth. What insect is this?",
         "choices": ["Bee", "Butterfly", "Moth", "Dragonfly"],
         "answer": 1
@@ -58,6 +66,7 @@
     {
         "id": 8,
         "number": 9,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This type of tree is known for its tall and slender appearance, with branches that sway gracefully in the wind. Its leaves are thin and narrow, resembling small feathers, and often have a soft, silver-green hue. Found near water sources such as rivers and lakes, this tree’s roots help prevent soil erosion. It has been used in traditional medicine for its bark, which contains compounds beneficial for pain relief. This tree is a symbol of resilience and peace in many cultures. What type of tree is this?",
         "choices": ["Maple", "Pine", "Willow", "Oak"],
         "answer": 2
@@ -65,6 +74,7 @@
     {
         "id": 9,
         "number": 10,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This plant is well-known for its fragrant purple flowers, which bloom in clusters. It is native to the Mediterranean and is used in various products, such as essential oils, soaps, and perfumes. The flowers are popular in aromatherapy for their calming effects and are often placed in sachets or used in teas. This plant thrives in sunny, dry areas and is frequently found in gardens. Its flowers attract bees and butterflies, making it valuable to pollinators. What is this plant?",
         "choices": ["Rose", "Lavender", "Thyme", "Mint"],
         "answer": 1
@@ -72,6 +82,7 @@
     {
         "id": 10,
         "number": 11,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This bird is famous for its ability to mimic sounds, including human voices and other bird calls. It has striking black and white feathers, and its intelligence is notable among birds. Commonly found in various environments, from urban areas to forests, it is adaptable and social, often seen in groups. This bird is an omnivore, eating everything from insects to small fruits. Its ability to learn and adapt has made it a subject of study among researchers interested in animal intelligence. What bird is this?",
         "choices": ["Parrot", "Crow", "Magpie", "Sparrow"],
         "answer": 2
@@ -79,6 +90,7 @@
     {
         "id": 11,
         "number": 12,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This vegetable is often orange, though it can also be purple, red, or yellow, and has a crunchy texture. It is commonly used in salads, soups, and stir-fries and is an excellent source of beta-carotene, which the body converts into vitamin A. Originally cultivated in Persia, it has become a staple in diets worldwide. The vegetable grows underground and is part of the root family. It is known to benefit vision and skin health. What vegetable is this?",
         "choices": ["Potato", "Carrot", "Radish", "Onion"],
         "answer": 1
@@ -86,6 +98,7 @@
     {
         "id": 12,
         "number": 13,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This flower is often associated with love and beauty, and it comes in many colors, including red, white, and yellow. It has a sweet fragrance and is commonly used in perfumes and cosmetics. With its soft, delicate petals, this flower is popular in gardens and floral arrangements. Originating in Asia, it has become one of the most cultivated flowers in the world. It is also known for its symbolic meanings in various cultures, often representing romance and admiration. What flower is this?",
         "choices": ["Tulip", "Lily", "Daisy", "Rose"],
         "answer": 3
@@ -93,6 +106,7 @@
     {
         "id": 13,
         "number": 14,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This animal is known for its strong sense of smell and its black and white striped coat. It is a member of the mustelid family and has a gland that produces a foul-smelling spray used for defense against predators. Native to the Americas, it is primarily nocturnal and feeds on insects, small mammals, and plants. Its unique defense mechanism is highly effective, deterring most animals from attacking it. This creature is also solitary and is known for digging burrows. What animal is this?",
         "choices": ["Badger", "Skunk", "Fox", "Raccoon"],
         "answer": 1
@@ -100,6 +114,7 @@
     {
         "id": 14,
         "number": 15,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This type of tree is recognized by its distinctive leaves, which have lobes and resemble a hand with fingers spread. Its leaves turn vibrant shades of red, orange, and yellow in the autumn, making it popular in landscapes. It is native to North America and produces small, winged seeds known as 'helicopters' that spin as they fall to the ground. This tree’s wood is commonly used in furniture and flooring, and its sap is used to make syrup. What type of tree is this?",
         "choices": ["Maple", "Oak", "Birch", "Pine"],
         "answer": 0
@@ -107,6 +122,7 @@
     {
         "id": 15,
         "number": 16,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This marine animal is well known for its hard shell, which protects its soft body from predators. It has claws, which it uses to catch food and defend itself. This animal lives in oceans and can often be found in rocky or sandy areas along the coast. Its diet mainly consists of small fish, algae, and plankton. The animal can regenerate lost limbs over time. It is often harvested for food and is considered a delicacy in many cultures. What animal is this?",
         "choices": ["Lobster", "Octopus", "Crab", "Starfish"],
         "answer": 2
@@ -114,6 +130,7 @@
     {
         "id": 16,
         "number": 17,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This small animal is known for its rapid reproduction and burrowing abilities. It has long ears, a fluffy tail, and is commonly found in grasslands, deserts, and forests around the world. It is an herbivore, feeding on grasses, vegetables, and herbs. Known for its agility and speed, this animal is also a popular pet and a symbol of fertility in many cultures. It has been introduced to many regions, where it can sometimes become an invasive species. What animal is this?",
         "choices": ["Hamster", "Rabbit", "Squirrel", "Hedgehog"],
         "answer": 1
@@ -121,6 +138,7 @@
     {
         "id": 17,
         "number": 18,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This animal is a large feline known for its golden fur and distinctive black spots arranged in rosettes across its body. Native to Africa, it is known for its strength and agility. Unlike many other big cats, it often drags its prey up into trees to keep it safe from other predators. This solitary hunter is also an excellent climber and swimmer. It is known for its stealth and is often found resting in tall grasses or shaded areas. What animal is this?",
         "choices": ["Tiger", "Jaguar", "Leopard", "Cheetah"],
         "answer": 2
@@ -128,6 +146,7 @@
     {
         "id": 18,
         "number": 19,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This animal is one of the fastest land animals, able to reach speeds of up to 70 miles per hour in short bursts. Its body is slender, with long legs, a small head, and a long tail that helps with balance during its sprints. Unlike other big cats, it cannot roar but instead communicates with chirps and growls. This animal is native to the African savannas and relies on its speed to catch prey, usually hunting alone during daylight hours. What animal is this?",
         "choices": ["Lion", "Leopard", "Tiger", "Cheetah"],
         "answer": 3
@@ -135,6 +154,7 @@
     {
         "id": 19,
         "number": 20,
+        "instruction": "다음 글이 설명하는 것으로 가장 적절한 것을 고르시오.",
         "passage": "This vegetable is green and resembles a miniature tree with a sturdy stalk and small, dense clusters on top. It is rich in vitamins C and K and is known for its health benefits, including supporting immune function and bone health. Originally cultivated in the Mediterranean, it has become popular worldwide and is often steamed, roasted, or eaten raw in salads. It belongs to the same family as cabbage and cauliflower. What vegetable is this?",
         "choices": ["Broccoli", "Spinach", "Lettuce", "Cabbage"],
         "answer": 0
