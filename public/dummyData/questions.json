@@ -1,0 +1,9 @@
+[
+    {
+        "id": 0,
+        "number": 1,
+        "passage": LOREM_IPSUM,
+        "choices": CHOICES,
+        "answer": 0,
+    };
+]

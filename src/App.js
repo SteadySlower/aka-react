@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import NotFound from "./NotFound";
 import TestList from "./components/testList/TestList";
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
             {
                 path: "/insert",
                 element: (
-                    <ProtectedRoute>
+                    <ProtectedRoute requireTeacher>
                         <InsertTest />
                     </ProtectedRoute>
                 ),

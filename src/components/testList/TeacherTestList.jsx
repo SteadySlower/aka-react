@@ -1,10 +1,16 @@
-import React, { useState } from "react";
-import { TESTS } from "../../dummyData";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import useTest from "../../hooks/useTest";
 
 function TeacherTestList(props) {
-    const [tests, setTests] = useState(TESTS);
     const navigate = useNavigate();
+    const {
+        testListQuery: { isLoading, data: tests },
+    } = useTest();
+
+    if (isLoading) {
+        return <p>isLoading...</p>;
+    }
 
     return (
         <div>
@@ -12,7 +18,7 @@ function TeacherTestList(props) {
                 {tests.map((t) => (
                     <li key={t.id}>
                         <div>
-                            {`${t.id}번 테스트`}
+                            {t.title}
                             <button
                                 onClick={() => {
                                     navigate(`/dotest/${t.id}`);
