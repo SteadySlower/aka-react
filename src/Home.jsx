@@ -1,23 +1,15 @@
 import React from "react";
 import Login from "./components/auth/Login";
-import { AuthContextProvider, useAuthContext } from "./context/AuthContext";
+import { useAuthContext } from "./context/AuthContext";
 
 function Home(props) {
-    return (
-        <AuthContextProvider>
-            <InnerHome />
-        </AuthContextProvider>
-    );
-}
-
-function InnerHome() {
     const { user } = useAuthContext();
 
     return (
         <div>
             Welcome to AKA English Test!
             {!user && <Login />}
-            {user && <p>{user.id}</p>}
+            {user && <p>{user.id}! Are you ready to {user.isTeacher ? "teach" : "study"}?</p>}
         </div>
     );
 }

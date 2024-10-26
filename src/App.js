@@ -2,6 +2,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
 import NotFound from "./NotFound";
+import { AuthContextProvider } from "./context/AuthContext";
+import TestList from "./components/testList/TestList";
+import DoTest from "./components/test/DoTest";
 
 const router = createBrowserRouter([
     {
@@ -9,13 +12,20 @@ const router = createBrowserRouter([
         element: <Home />,
         errorElement: <NotFound />,
     },
+    {
+        path: "/test",
+        element: <TestList />,
+        children: [{ path: "test/:testID", element: <DoTest /> }],
+    },
 ]);
 
 function App() {
     return (
-        <RouterProvider router={router}>
-            <Home />
-        </RouterProvider>
+        <AuthContextProvider>
+            <RouterProvider router={router}>
+                <Home />
+            </RouterProvider>
+        </AuthContextProvider>
     );
 }
 
