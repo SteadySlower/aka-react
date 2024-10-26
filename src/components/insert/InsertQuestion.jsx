@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import InsertChoice from "./InsertChoice";
+import { v4 as uuidv4 } from "uuid";
 
 function InsertQuestion({ onQuestionAdded }) {
     const [question, setQuestion] = useState({
@@ -10,22 +11,22 @@ function InsertQuestion({ onQuestionAdded }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (question.instruction.trim().length === 0) {
-            alert("질문이 비어 있습니다.")
-            return
+            alert("질문이 비어 있습니다.");
+            return;
         }
         if (question.passage.trim().length === 0) {
-            alert("지문이 비어 있습니다.")
-            return
+            alert("지문이 비어 있습니다.");
+            return;
         }
         if (question.choices.length !== 4) {
-            alert("선택지를 4개 입력해야합니다.")
-            return
+            alert("선택지를 4개 입력해야합니다.");
+            return;
         }
         if (question.answer === undefined) {
-            alert("정답을 골라야합니다.")
-            return
+            alert("정답을 골라야합니다.");
+            return;
         }
-        onQuestionAdded(question);
+        onQuestionAdded({ ...question, id: uuidv4() });
         setQuestion({
             instruction: "",
             passage: "",
@@ -56,9 +57,9 @@ function InsertQuestion({ onQuestionAdded }) {
     const handleAnswerSelected = (index) => {
         setQuestion((prev) => ({
             ...prev,
-            answer: index
-        }))
-    }
+            answer: index,
+        }));
+    };
 
     return (
         <section>
