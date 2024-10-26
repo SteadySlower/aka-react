@@ -9,13 +9,15 @@ function useTest(testId) {
     });
     const questionsQuery = useQuery({
         queryKey: ["questions", testId],
-        queryFn: () => {
-            console.log("실행")
-            return client.getQuestions(testId)
-        },
+        queryFn: () => client.getQuestions(testId),
         staleTime: 1000 * 60,
     });
-    return { testListQuery, questionsQuery };
+    const answersQuery = useQuery({
+        queryKey: ["answersQuery", testId],
+        queryFn: () => client.getAnswers(testId),
+        staleTime: 1000 * 60,
+    });
+    return { testListQuery, questionsQuery, answersQuery };
 }
 
 export default useTest;

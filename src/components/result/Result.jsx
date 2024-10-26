@@ -1,37 +1,17 @@
-import React, { useMemo } from "react";
-import { QUESTIONS } from "../../dummyData";
+import React from "react";
 import { useParams } from "react-router-dom";
+import useTest from "../../hooks/useTest";
 
 function Result() {
-    const answers = [
-        { id: 0, answer: 0 },
-        { id: 1, answer: 1 },
-        { id: 2, answer: 2 },
-        { id: 3, answer: 3 },
-        { id: 4, answer: 0 },
-        { id: 5, answer: 1 },
-        { id: 6, answer: 2 },
-        { id: 7, answer: 3 },
-        { id: 8, answer: 0 },
-        { id: 9, answer: 1 },
-        { id: 10, answer: 2 },
-    ];
-
-    // TODO: fetch answers with test id
     const { id: testId } = useParams();
+    const {
+        questionsQuery: { isLoading: questionsLoading, data: questions },
+        answersQuery: { isLoading: answersLoading, data: answers },
+    } = useTest(testId);
 
-    const getUserAnswer = (id) => {
-        const found = answers.find((a) => a.id === id);
-        return found ? `${found.answer + 1}` : "-";
-    };
-
-    const getQuestionResult = (question) => {
-        const userAnswer = answers.find((a) => a.id === question.id);
-        if (userAnswer === undefined) {
-            return "X";
-        }
-        return userAnswer.answer === question.answer ? "O" : "X";
-    };
+    if (questionsLoading || answersLoading) {
+        return <p>is Loading...</p>;
+    }
 
     return (
         <table>
@@ -44,12 +24,14 @@ function Result() {
                 </tr>
             </thead>
             <tbody>
-                {QUESTIONS.map((q) => (
+                {questions.map((q) => (
                     <tr key={q.id}>
-                        <td>{q.id + 1}</td>
+                        <td>{q.number}</td>
                         <td>{q.answer}</td>
-                        <td>{getUserAnswer(q.id)}</td>
-                        <td>{getQuestionResult(q)}</td>
+                        <td>
+                            {answers[q.id] !== undefined ? answers[q.id] : "-"}
+                        </td>
+                        <td>{answers[q.id] === q.answer ? "O" : "X"}</td>
                     </tr>
                 ))}
             </tbody>

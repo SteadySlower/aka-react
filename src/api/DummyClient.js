@@ -8,6 +8,10 @@ class DummyClient {
     async getQuestions(id) {
         return axios.get("/dummyData/questions.json").then((res) => res.data);
     }
+
+    async getAnswers(id) {
+        return axios.get("/dummyData/answers.json").then((res) => res.data);
+    }
 }
 
 const client = new DummyClient();
