@@ -37,6 +37,12 @@ function InsertQuestion({ onQuestionAdded }) {
             choices: newChoices,
         }));
     };
+    const handleAnswerSelected = (index) => {
+        setQuestion((prev) => ({
+            ...prev,
+            answer: index
+        }))
+    }
 
     return (
         <section>
@@ -61,8 +67,10 @@ function InsertQuestion({ onQuestionAdded }) {
             </form>
             <InsertChoice
                 choices={question.choices}
+                answer={question.answer}
                 onChoiceAdded={handleChoiceAdded}
                 onChoiceDeleted={handleChoiceDeleted}
+                onAnswerSelected={handleAnswerSelected}
             />
         </section>
     );

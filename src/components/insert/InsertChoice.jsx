@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function InsertChoice({ choices, onChoiceAdded, onChoiceDeleted }) {
+function InsertChoice({ choices, answer, onChoiceAdded, onChoiceDeleted, onAnswerSelected }) {
     const [choice, setChoice] = useState("");
     const handleChange = (e) => {
         setChoice(e.target.value);
@@ -22,6 +22,12 @@ function InsertChoice({ choices, onChoiceAdded, onChoiceDeleted }) {
                                 <button onClick={() => onChoiceDeleted(i)}>
                                     ❌
                                 </button>
+                                <input
+                                    type="checkbox"
+                                    id={`checkbox ${i}`}
+                                    checked={answer === i}
+                                    onChange={() => onAnswerSelected(i)}
+                                />
                             </div>
                         </li>
                     ))}
