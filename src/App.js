@@ -5,6 +5,8 @@ import NotFound from "./NotFound";
 import { AuthContextProvider } from "./context/AuthContext";
 import TestList from "./components/testList/TestList";
 import DoTest from "./components/test/DoTest";
+import Result from "./components/result/Result";
+import InsertTest from "./components/insert/InsertTest";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
     {
         path: "/dotest/:id",
         element: <DoTest />,
+    },
+    {
+        path: "/result",
+        element: <Result />,
+    },
+    {
+        path: "/insert",
+        element: <InsertTest />,
     },
 ]);
 
