@@ -1,7 +1,18 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { USERS } from "../dummyData";
 
 const AuthContext = createContext();
+const USERS = [
+    {
+        id: "akastudent",
+        password: "test1234",
+        isTeacher: false,
+    },
+    {
+        id: "akateacher",
+        password: "test1234",
+        isTeacher: true,
+    },
+];
 
 export function AuthContextProvider({ children }) {
     const [user, setUser] = useState("not ready");
@@ -19,7 +30,10 @@ export function AuthContextProvider({ children }) {
             setTimeout(() => setError(null), 3000);
             return;
         }
-        const newUser = { id: currentUser.id, isTeacher: currentUser.isTeacher }
+        const newUser = {
+            id: currentUser.id,
+            isTeacher: currentUser.isTeacher,
+        };
         setUser(newUser);
         localStorage.setItem("user", JSON.stringify(newUser));
     };
@@ -34,7 +48,7 @@ export function AuthContextProvider({ children }) {
         if (storedUser !== undefined) {
             setUser(JSON.parse(storedUser));
         } else {
-            setUser(undefined)
+            setUser(undefined);
         }
     }, []);
 
