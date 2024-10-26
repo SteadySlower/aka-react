@@ -5,7 +5,6 @@ import StudentTestList from "./StudentTestList";
 
 function TestList() {
     const { user } = useAuthContext();
-    console.log(user)
 
     if (user && user.isTeacher) {
         return <TeacherTestList />;

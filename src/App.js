@@ -15,7 +15,10 @@ const router = createBrowserRouter([
     {
         path: "/test",
         element: <TestList />,
-        children: [{ path: "test/:testID", element: <DoTest /> }],
+    },
+    {
+        path: "/dotest/:id",
+        element: <DoTest />,
     },
 ]);
 
