@@ -20,7 +20,7 @@ function Login() {
         <form onSubmit={handleSubmit}>
             <input type="text" placeholder="ID" onChange={handleIdChange} />
             <input
-                type="text"
+                type="password"
                 placeholder="Password"
                 onChange={handlePasswordChange}
             />
