@@ -1,8 +1,8 @@
 import "./App.css";
-import Result from "./components/result/Result";
+import InsertTest from "./components/insert/InsertTest";
 
 function App() {
-    return <Result />;
+    return <InsertTest />;
 }
 
 export default App;
