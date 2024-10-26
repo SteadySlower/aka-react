@@ -5,8 +5,8 @@ class DummyClient {
         return axios.get("/dummyData/tests.json").then((res) => res.data);
     }
 
-    async getQuestions() {
-        return axios.get("/dummyData/tests.json").then((res) => res.data); 
+    async getQuestions(id) {
+        return axios.get("/dummyData/questions.json").then((res) => res.data);
     }
 }
 

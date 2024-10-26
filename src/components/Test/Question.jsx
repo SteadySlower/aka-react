@@ -10,7 +10,10 @@ function Question({ question: { id, passage, choices } }) {
     return (
         <section>
             <div>
-                <h3>{id + 1}. 빈칸에 들어갈 단어로 적절한 것을 고르시오</h3>
+                <h3>
+                    {id + 1}. 다음 글이 설명하는 것으로 가장 적절한 것을
+                    고르시오.
+                </h3>
                 <p>{passage}</p>
             </div>
             <ol>
