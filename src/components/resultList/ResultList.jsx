@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-import { TESTS } from "../../dummyData";
 import { useNavigate } from "react-router-dom";
+import useTest from "../../hooks/useTest";
 
 function ResultList() {
-    const [tests, setTests] = useState(TESTS);
     const navigate = useNavigate();
+    const {
+        testListQuery: { isLoading, data: tests },
+    } = useTest();
+
+    if (isLoading) {
+        return <p>isLoading...</p>;
+    }
 
     return (
         <div>
@@ -12,14 +18,16 @@ function ResultList() {
                 {tests.map((t) => (
                     <li key={t.id}>
                         <div>
-                            {`${t.id}번 테스트`}
-                            <button
-                                onClick={() => {
-                                    navigate(`/result/${t.id}`);
-                                }}
-                            >
-                                결과 보기
-                            </button>
+                            {t.title}
+                            {t.hasResult && (
+                                <button
+                                    onClick={() => {
+                                        navigate(`/result/${t.id}`);
+                                    }}
+                                >
+                                    결과 보기
+                                </button>
+                            )}
                         </div>
                     </li>
                 ))}
