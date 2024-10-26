@@ -1,8 +1,22 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import TeacherTestList from "./components/testList/TeacherTestList";
+import Home from "./Home";
+import NotFound from "./NotFound";
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Home />,
+        errorElement: <NotFound />,
+    },
+]);
 
 function App() {
-    return <TeacherTestList />;
+    return (
+        <RouterProvider router={router}>
+            <Home />
+        </RouterProvider>
+    );
 }
 
 export default App;
