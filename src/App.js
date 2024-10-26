@@ -8,6 +8,7 @@ import ResultList from "./components/resultList/ResultList";
 import InsertTest from "./components/insert/InsertTest";
 import Home from "./Home";
 import ProtectedRoute from "./ProtectedRoutes";
+import Result from "./components/result/Result";
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,14 @@ const router = createBrowserRouter([
                 element: (
                     <ProtectedRoute>
                         <ResultList />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/result/:id",
+                element: (
+                    <ProtectedRoute>
+                        <Result />
                     </ProtectedRoute>
                 ),
             },
