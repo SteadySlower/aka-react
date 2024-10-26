@@ -14,7 +14,11 @@ class DummyClient {
     }
 
     async postTest(test) {
-        console.log(`question posted: ${JSON.stringify(test)}`);
+        console.log(`test posted: ${JSON.stringify(test)}`);
+    }
+
+    async deleteTest(id) {
+        console.log(`test deleted: ${id}`)
     }
 }
 

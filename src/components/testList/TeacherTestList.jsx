@@ -6,8 +6,21 @@ function TeacherTestList(props) {
     const navigate = useNavigate();
     const {
         testListQuery: { isLoading, data: tests },
+        deleteTest,
     } = useTest();
-
+    const handleEditClick = (id) => {
+        navigate(`/dotest/${id}`);
+    };
+    const handleDeleteClick = (id) => {
+        deleteTest.mutate(
+            { id },
+            {
+                onSuccess: () => {
+                    alert("테스트가 성공적으로 삭제되었습니다.");
+                },
+            }
+        );
+    };
     if (isLoading) {
         return <p>isLoading...</p>;
     }
@@ -21,10 +34,17 @@ function TeacherTestList(props) {
                             {t.title}
                             <button
                                 onClick={() => {
-                                    navigate(`/dotest/${t.id}`);
+                                    handleEditClick(t.id);
                                 }}
                             >
-                                문제 보기
+                                수정
+                            </button>
+                            <button
+                                onClick={() => {
+                                    handleDeleteClick(t.id);
+                                }}
+                            >
+                                삭제
                             </button>
                         </div>
                     </li>

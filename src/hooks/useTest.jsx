@@ -24,7 +24,11 @@ function useTest(testId) {
         mutationFn: ({ test }) => client.postTest(test),
         onSuccess: () => queryClient.invalidateQueries(TEST_LIST_QUERY_KEY),
     });
-    return { testListQuery, questionsQuery, answersQuery, addTest };
+    const deleteTest = useMutation({
+        mutationFn: ({ id }) => client.deleteTest(id),
+        onSuccess: () => queryClient.invalidateQueries(TEST_LIST_QUERY_KEY),
+    })
+    return { testListQuery, questionsQuery, answersQuery, addTest, deleteTest };
 }
 
 export default useTest;
