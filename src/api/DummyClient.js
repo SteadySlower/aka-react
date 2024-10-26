@@ -12,6 +12,10 @@ class DummyClient {
     async getAnswers(id) {
         return axios.get("/dummyData/answers.json").then((res) => res.data);
     }
+
+    async postTest(test) {
+        console.log(`question posted: ${JSON.stringify(test)}`);
+    }
 }
 
 const client = new DummyClient();

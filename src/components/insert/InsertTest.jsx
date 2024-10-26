@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import InsertQuestion from "./InsertQuestion";
 import QuestionCard from "./QuestionCard";
+import useTest from "../../hooks/useTest";
+import { v4 as uuidv4 } from "uuid";
 
 function InsertTest() {
     const [title, setTitle] = useState("");
     const [questions, setQuestions] = useState([]);
+    const { addTest } = useTest();
     const handleChange = (e) => {
         setTitle(e.target.value);
     };
@@ -14,10 +17,20 @@ function InsertTest() {
     const handleOnClick = () => {
         // TODO: validate test
         const newTest = {
+            id: uuidv4(),
             title: title,
             questions: questions,
         };
-        console.log(newTest);
+        addTest.mutate(
+            { test: newTest },
+            {
+                onSuccess: () => {
+                    alert("테스트가 성공적으로 추가되었습니다.");
+                    setTitle("");
+                    setQuestions([]);
+                },
+            }
+        );
     };
 
     return (

@@ -1,9 +1,12 @@
 import client from "../api/DummyClient";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+
+const TEST_LIST_QUERY_KEY = ["test list"];
 
 function useTest(testId) {
+    const queryClient = useQueryClient();
     const testListQuery = useQuery({
-        queryKey: ["test list"],
+        queryKey: TEST_LIST_QUERY_KEY,
         queryFn: client.getTests,
         staleTime: 1000 * 60,
     });
@@ -17,7 +20,11 @@ function useTest(testId) {
         queryFn: () => client.getAnswers(testId),
         staleTime: 1000 * 60,
     });
-    return { testListQuery, questionsQuery, answersQuery };
+    const addTest = useMutation({
+        mutationFn: ({ test }) => client.postTest(test),
+        onSuccess: () => queryClient.invalidateQueries(TEST_LIST_QUERY_KEY),
+    });
+    return { testListQuery, questionsQuery, answersQuery, addTest };
 }
 
 export default useTest;
