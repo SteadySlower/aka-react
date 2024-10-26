@@ -1,7 +1,7 @@
 import React from "react";
 import { useAnswerContext } from "../../context/AnswerContext";
 
-function Question({ question: { id, passage, choices } }) {
+function Question({ question: { id, number, passage, choices } }) {
     const { getAnswer, setAnswer } = useAnswerContext();
     const handleClick = (index) => {
         setAnswer(id, index);
@@ -11,7 +11,7 @@ function Question({ question: { id, passage, choices } }) {
         <section>
             <div>
                 <h3>
-                    {id + 1}. 다음 글이 설명하는 것으로 가장 적절한 것을
+                    {number}. 다음 글이 설명하는 것으로 가장 적절한 것을
                     고르시오.
                 </h3>
                 <p>{passage}</p>
