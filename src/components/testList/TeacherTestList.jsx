@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { TESTS } from "../../dummyData";
+import { useNavigate } from "react-router-dom";
 
 function TeacherTestList(props) {
     const [tests, setTests] = useState(TESTS);
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -11,7 +13,13 @@ function TeacherTestList(props) {
                     <li key={t.id}>
                         <div>
                             {`${t.id}번 테스트`}
-                            <button>문제 보기</button>
+                            <button
+                                onClick={() => {
+                                    navigate(`/dotest/${t.id}`);
+                                }}
+                            >
+                                문제 보기
+                            </button>
                         </div>
                     </li>
                 ))}

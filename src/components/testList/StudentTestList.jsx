@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { TESTS } from "../../dummyData";
+import { useNavigate } from "react-router-dom";
 
 function StudentTestList() {
     const [tests, setTests] = useState(TESTS);
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -11,7 +13,13 @@ function StudentTestList() {
                     <li key={t.id}>
                         <div>
                             {`${t.id}번 테스트`}
-                            <button>시험 시작</button>
+                            <button
+                                onClick={() => {
+                                    navigate(`/dotest/${t.id}`);
+                                }}
+                            >
+                                시험 시작
+                            </button>
                         </div>
                     </li>
                 ))}

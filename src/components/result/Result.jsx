@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { QUESTIONS } from "../../dummyData";
+import { useParams } from "react-router-dom";
 
 function Result() {
     const answers = [
@@ -15,6 +16,9 @@ function Result() {
         { id: 9, answer: 1 },
         { id: 10, answer: 2 },
     ];
+
+    // TODO: fetch answers with test id
+    const { id: testId } = useParams();
 
     const getUserAnswer = (id) => {
         const found = answers.find((a) => a.id === id);
