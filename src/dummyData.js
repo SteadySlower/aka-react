@@ -5,11 +5,17 @@ export const QUESTION = {
     id: 0,
     passage: LOREM_IPSUM,
     choices: CHOICES,
-    answer: 0
+    answer: 0,
 };
 export const QUESTIONS = [...Array(20)].map((_, i) => {
     return {
         ...QUESTION,
+        id: i,
+    };
+});
+export const TESTS = [...Array(20)].map((_, i) => {
+    return {
+        questions: QUESTIONS,
         id: i,
     };
 });
