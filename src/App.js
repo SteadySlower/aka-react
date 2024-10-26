@@ -1,11 +1,10 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./App.css";
 import NotFound from "./NotFound";
-import { AuthContextProvider } from "./context/AuthContext";
 import TestList from "./components/testList/TestList";
 import Welcome from "./components/Welcome";
 import DoTest from "./components/test/DoTest";
-import Result from "./components/result/Result";
+import ResultList from "./components/resultList/ResultList";
 import InsertTest from "./components/insert/InsertTest";
 import Home from "./Home";
 import ProtectedRoute from "./ProtectedRoutes";
@@ -27,15 +26,27 @@ const router = createBrowserRouter([
             },
             {
                 path: "/dotest/:id",
-                element: <DoTest />,
+                element: (
+                    <ProtectedRoute>
+                        <DoTest />,
+                    </ProtectedRoute>
+                ),
             },
             {
                 path: "/result",
-                element: <Result />,
+                element: (
+                    <ProtectedRoute>
+                        <ResultList />
+                    </ProtectedRoute>
+                ),
             },
             {
                 path: "/insert",
-                element: <InsertTest />,
+                element: (
+                    <ProtectedRoute>
+                        <InsertTest />
+                    </ProtectedRoute>
+                ),
             },
         ],
     },
