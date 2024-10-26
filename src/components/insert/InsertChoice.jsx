@@ -7,6 +7,10 @@ function InsertChoice({ choices, answer, onChoiceAdded, onChoiceDeleted, onAnswe
     };
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (choice.trim().length === 0) {
+            alert("선택지가 비어 있습니다.")
+            return
+        }
         onChoiceAdded(choice);
         setChoice("");
     };

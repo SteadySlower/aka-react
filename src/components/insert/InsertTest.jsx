@@ -15,7 +15,14 @@ function InsertTest() {
         setQuestions((questions) => [...questions, question]);
     };
     const handleOnClick = () => {
-        // TODO: validate test
+        if (title.trim().length === 0) {
+            alert("테스트 제목을 입력해야 합니다")
+            return
+        }
+        if (questions.length < 1) {
+            alert("문제를 하나 이상 입력해주세요.")
+            return
+        }
         const newTest = {
             id: uuidv4(),
             title: title,
