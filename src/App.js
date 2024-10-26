@@ -9,6 +9,7 @@ import InsertTest from "./components/insert/InsertTest";
 import Home from "./Home";
 import ProtectedRoute from "./ProtectedRoutes";
 import Result from "./components/result/Result";
+import EditTest from "./components/edit/EditTest";
 
 const router = createBrowserRouter([
     {
@@ -54,6 +55,14 @@ const router = createBrowserRouter([
                 element: (
                     <ProtectedRoute requireTeacher>
                         <InsertTest />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: "/edit/:id",
+                element: (
+                    <ProtectedRoute requireTeacher>
+                        <EditTest />
                     </ProtectedRoute>
                 ),
             },

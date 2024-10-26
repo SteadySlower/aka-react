@@ -8,8 +8,8 @@ function TeacherTestList(props) {
         testListQuery: { isLoading, data: tests },
         deleteTest,
     } = useTest();
-    const handleEditClick = (id) => {
-        navigate(`/dotest/${id}`);
+    const handleEditClick = (test) => {
+        navigate(`/edit/${test.id}`, { state: { test } });
     };
     const handleDeleteClick = (id) => {
         deleteTest.mutate(
@@ -34,7 +34,7 @@ function TeacherTestList(props) {
                             {t.title}
                             <button
                                 onClick={() => {
-                                    handleEditClick(t.id);
+                                    handleEditClick(t);
                                 }}
                             >
                                 수정
