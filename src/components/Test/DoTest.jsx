@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { QUESTIONS } from "../../dummyData";
 import Question from "./Question";
-import { useAnswerContext } from "../../context/AnswerContext";
 import AnswerTable from "./AnswerTable";
 
 function DoTest() {

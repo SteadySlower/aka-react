@@ -5,6 +5,7 @@ export const QUESTION = {
     id: 0,
     passage: LOREM_IPSUM,
     choices: CHOICES,
+    answer: 0
 };
 export const QUESTIONS = [...Array(20)].map((_, i) => {
     return {

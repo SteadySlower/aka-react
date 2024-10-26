@@ -1,13 +1,8 @@
 import "./App.css";
-import DoTest from "./components/Test/DoTest";
-import { AnswerContextProvider } from "./context/AnswerContext";
+import Result from "./components/result/Result";
 
 function App() {
-    return (
-        <AnswerContextProvider>
-            <DoTest />
-        </AnswerContextProvider>
-    );
+    return <Result />;
 }
 
 export default App;
