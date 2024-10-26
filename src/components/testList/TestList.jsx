@@ -5,11 +5,14 @@ import StudentTestList from "./StudentTestList";
 
 function TestList() {
     const { user } = useAuthContext();
+    console.log(user)
 
-    if (user.isTeacher) {
+    if (user && user.isTeacher) {
         return <TeacherTestList />;
-    } else {
+    } else if (user && !user.isTeacher) {
         return <StudentTestList />;
+    } else {
+        return <p>is Loading...</p>
     }
 }
 

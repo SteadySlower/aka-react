@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { USERS } from "../dummyData";
 
 const AuthContext = createContext();
@@ -19,12 +19,22 @@ export function AuthContextProvider({ children }) {
             setTimeout(() => setError(null), 3000);
             return;
         }
-        setUser({ id: currentUser.id, isTeacher: currentUser.isTeacher });
+        const newUser = { id: currentUser.id, isTeacher: currentUser.isTeacher }
+        setUser(newUser);
+        localStorage.setItem("user", JSON.stringify(newUser));
     };
 
     const logout = () => {
         setUser(null);
+        localStorage.removeItem("user");
     };
+
+    useEffect(() => {
+        const storedUser = localStorage.user;
+        if (storedUser !== undefined) {
+            setUser(JSON.parse(storedUser));
+        }
+    }, []);
 
     return (
         <AuthContext.Provider value={{ user, error, login, logout }}>
