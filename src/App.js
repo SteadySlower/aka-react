@@ -8,6 +8,7 @@ import DoTest from "./components/test/DoTest";
 import Result from "./components/result/Result";
 import InsertTest from "./components/insert/InsertTest";
 import Home from "./Home";
+import ProtectedRoute from "./ProtectedRoutes";
 
 const router = createBrowserRouter([
     {
@@ -18,7 +19,11 @@ const router = createBrowserRouter([
             { index: true, element: <Welcome /> },
             {
                 path: "/test",
-                element: <TestList />,
+                element: (
+                    <ProtectedRoute>
+                        <TestList />
+                    </ProtectedRoute>
+                ),
             },
             {
                 path: "/dotest/:id",

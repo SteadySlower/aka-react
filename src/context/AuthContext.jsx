@@ -4,7 +4,7 @@ import { USERS } from "../dummyData";
 const AuthContext = createContext();
 
 export function AuthContextProvider({ children }) {
-    const [user, setUser] = useState();
+    const [user, setUser] = useState("not ready");
     const [error, setError] = useState();
 
     const login = (id, password) => {
@@ -33,6 +33,8 @@ export function AuthContextProvider({ children }) {
         const storedUser = localStorage.user;
         if (storedUser !== undefined) {
             setUser(JSON.parse(storedUser));
+        } else {
+            setUser(undefined)
         }
     }, []);
 
