@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import useTest from "../../hooks/useTest";
+import QuestionSelector from "./QuestionSelector";
 
 function EditTest() {
     const {
@@ -11,10 +12,15 @@ function EditTest() {
     } = useTest(test.id);
 
     if (isLoading) {
-        return <p>is Loading...</p>
+        return <p>is Loading...</p>;
     }
 
-    return <div>Edit Test {JSON.stringify(test)}{questions.length}</div>;
+    return (
+        <>
+            <h2>{test.title} 수정하기</h2>
+            <QuestionSelector questions={questions} />
+        </>
+    );
 }
 
 export default EditTest;
