@@ -4,6 +4,7 @@ import AnswerTable from "./AnswerTable";
 import { useAnswerContext } from "../../context/AnswerContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import useTest from "../../hooks/useTest";
+import style from "./DoTest.module.scss";
 
 function DoTest() {
     const {
@@ -34,14 +35,14 @@ function DoTest() {
     };
 
     return (
-        <>
+        <div className={style.container}>
+            <Question question={questions[index]} />
             <AnswerTable
                 ids={questions.map((q) => q.id)}
+                nowIndex={index}
                 onClick={handleTableClick}
             />
-            <Question question={questions[index]} />
-            <button onClick={handleClick}>답안 제출</button>
-        </>
+        </div>
     );
 }
 

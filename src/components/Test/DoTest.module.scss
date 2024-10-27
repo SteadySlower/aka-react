@@ -1,4 +1,11 @@
 @use "../../styles/color" as color;
+
+.container {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    height: 100vh;
+}
+
 .choices {
     list-style-type: none;
 }
@@ -32,4 +39,42 @@
 .circleChosen {
     font-size: 2rem;
     color: color.$brandColor;
+}
+
+.tableContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.answerTable {
+    width: 80%;
+    border: 1px solid;
+    thead {
+        td {
+            border-bottom: 2px solid;
+        }
+    }
+
+    td {
+        text-align: center;
+    }
+
+    %baseQuestionCell {
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .questionCell {
+        @extend %baseQuestionCell;
+    }
+
+    .questionCellChosen {
+        @extend %baseQuestionCell;
+        color: color.$brandColor;
+    }
+
+    .questionCell:hover {
+        color: color.$brandColor;
+    }
 }
