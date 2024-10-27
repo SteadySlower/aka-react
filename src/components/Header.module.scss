@@ -1,0 +1,15 @@
+@use "../styles/color" as color;
+
+.homeLink {
+    display: flex;
+    place-items: center;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    color: color.$brandColor;
+    text-decoration: none;
+
+    .icon {
+        font-size: 3rem;
+        margin-right: 1rem;
+    }
+}
