@@ -16,7 +16,17 @@ function useValidation() {
         return null
     }
 
-    return { validateQuestion }
+    const validateTest = (test) => {
+        if (test.title.trim().length === 0) {
+            return "테스트 제목을 입력해야 합니다"
+        }
+        if (test.questions.length < 1) {
+            return "문제를 하나 이상 입력해주세요."
+        }
+        return null
+    }
+
+    return { validateQuestion, validateTest }
 }
 
 export default useValidation;

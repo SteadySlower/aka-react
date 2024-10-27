@@ -3,11 +3,13 @@ import InsertQuestion from "./InsertQuestion";
 import QuestionCard from "./QuestionCard";
 import useTest from "../../hooks/useTest";
 import { v4 as uuidv4 } from "uuid";
+import useValidation from "../../hooks/useValidation";
 
 function InsertTest() {
     const [title, setTitle] = useState("");
     const [questions, setQuestions] = useState([]);
     const { addTest } = useTest();
+    const { validateTest } = useValidation();
     const handleChange = (e) => {
         setTitle(e.target.value);
     };
@@ -15,13 +17,10 @@ function InsertTest() {
         setQuestions((questions) => [...questions, question]);
     };
     const handleOnClick = () => {
-        if (title.trim().length === 0) {
-            alert("테스트 제목을 입력해야 합니다")
-            return
-        }
-        if (questions.length < 1) {
-            alert("문제를 하나 이상 입력해주세요.")
-            return
+        const alertMessage = validateTest(test);
+        if (alertMessage) {
+            alert(alertMessage);
+            return;
         }
         const newTest = {
             id: uuidv4(),
