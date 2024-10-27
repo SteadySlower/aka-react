@@ -1,28 +1,47 @@
 import React, { useState } from "react";
 import Question from "./Question";
 import AnswerTable from "./AnswerTable";
-import { AnswerContextProvider } from "../../context/AnswerContext";
-import { useLocation } from "react-router-dom";
+import { useAnswerContext } from "../../context/AnswerContext";
+import { useLocation, useNavigate } from "react-router-dom";
+import useTest from "../../hooks/useTest";
 
 function DoTest() {
     const {
         state: {
+            test,
             test: { questions },
         },
     } = useLocation();
+    const navigate = useNavigate();
+    const { answers, clearAnswers } = useAnswerContext();
+    const { submitAnswers } = useTest(test.id);
     const [index, setIndex] = useState(0);
     const handleTableClick = (index) => {
         setIndex(index);
     };
+    const handleClick = () => {
+        // TODO: validate
+        submitAnswers.mutate(
+            { answers },
+            {
+                onSuccess: () => {
+                    alert("결과가 성공적으로 전송되었습니다.");
+                    clearAnswers();
+                    navigate(`/test`);
+                },
+            }
+        );
+    };
 
     return (
-        <AnswerContextProvider>
+        <>
             <AnswerTable
                 ids={questions.map((q) => q.id)}
                 onClick={handleTableClick}
             />
             <Question question={questions[index]} />
-        </AnswerContextProvider>
+            <button onClick={handleClick}>답안 제출</button>
+        </>
     );
 }
 

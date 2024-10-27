@@ -13,9 +13,12 @@ export function AnswerContextProvider({ children }) {
             [id]: newAnswer,
         }));
     };
+    const clearAnswers = () => {
+        setAnswers((_) => {})
+    }
 
     return (
-        <AnswerContext.Provider value={{ answers, getAnswer, setAnswer }}>
+        <AnswerContext.Provider value={{ answers, getAnswer, setAnswer, clearAnswers }}>
             {children}
         </AnswerContext.Provider>
     );

@@ -10,6 +10,7 @@ import Home from "./Home";
 import ProtectedRoute from "./ProtectedRoutes";
 import Result from "./components/result/Result";
 import EditTest from "./components/edit/EditTest";
+import { AnswerContextProvider } from "./context/AnswerContext";
 
 const router = createBrowserRouter([
     {
@@ -30,7 +31,9 @@ const router = createBrowserRouter([
                 path: "/dotest/:id",
                 element: (
                     <ProtectedRoute>
-                        <DoTest />,
+                        <AnswerContextProvider>
+                            <DoTest />
+                        </AnswerContextProvider>
                     </ProtectedRoute>
                 ),
             },

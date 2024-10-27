@@ -38,10 +38,17 @@ function useTest(testId) {
             queryClient.invalidateQueries(["test", testId]);
         },
     });
+    const submitAnswers = useMutation({
+        mutationFn: ({ answers }) =>
+            client.postAnswers(user.id, testId, answers),
+        onSuccess: () =>
+            queryClient.invalidateQueries(["answersQuery", testId, user.id]),
+    });
     return {
         testListQuery,
         testQuery,
         answersQuery,
+        submitAnswers,
         addTest,
         deleteTest,
         editTest,

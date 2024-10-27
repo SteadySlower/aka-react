@@ -37,6 +37,10 @@ class FirebaseClient {
         );
     }
 
+    async postAnswers(userId, testId, answers) {
+        return set(ref(database, `answers/${userId}/${testId}`), answers);
+    }
+
     async postTest(test) {
         return set(ref(database, `tests/${test.id}`), test);
     }
