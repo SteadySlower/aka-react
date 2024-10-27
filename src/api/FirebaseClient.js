@@ -20,6 +20,31 @@ class FirebaseClient {
         });
     }
 
+    async getAnsweredTests(userId) {
+        return Promise.all([
+            get(ref(database, "tests")).then((snapshot) => {
+                if (snapshot.exists()) {
+                    return Object.values(snapshot.val());
+                }
+                return []
+            }),
+            get(ref(database, `answers/${userId}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    return snapshot.val();
+                }
+                return {};
+            }),
+        ]).then(([tests, answers]) => {
+            console.log(tests, answers, userId)
+            return tests.map((t) => {
+                if (answers[t.id]) {
+                    return { ...t, hasResult: true };
+                }
+                return { ...t, hasResult: false };
+            });
+        });
+    }
+
     async getTest(id) {
         return get(ref(database, `tests/${id}`)).then((snapshot) => {
             return snapshot.val();

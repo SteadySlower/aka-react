@@ -22,7 +22,15 @@ function useTest(testId) {
         queryKey: ["answersQuery", testId, user.id],
         queryFn: () => client.getAnswers(user.id, testId),
         staleTime: 1000 * 60,
+        enabled: !!user.id,
     });
+    const answeredTestsQuery = useQuery({
+        queryKey: ["answeredTestsQuery", user.id],
+        queryFn: () => client.getAnsweredTests(user.id),
+        staleTime: 1000 * 60,
+        enabled: !!user.id,
+    });
+
     const addTest = useMutation({
         mutationFn: ({ test }) => client.postTest(test),
         onSuccess: () => queryClient.invalidateQueries(TEST_LIST_QUERY_KEY),
@@ -47,6 +55,7 @@ function useTest(testId) {
     return {
         testListQuery,
         testQuery,
+        answeredTestsQuery,
         answersQuery,
         submitAnswers,
         addTest,

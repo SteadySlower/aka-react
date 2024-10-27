@@ -5,7 +5,7 @@ import useTest from "../../hooks/useTest";
 function ResultList() {
     const navigate = useNavigate();
     const {
-        testListQuery: { isLoading, data: tests },
+        answeredTestsQuery: { isLoading, data: tests },
     } = useTest();
 
     if (isLoading) {
