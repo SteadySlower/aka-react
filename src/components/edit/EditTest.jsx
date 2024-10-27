@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import useTest from "../../hooks/useTest";
 import QuestionSelector from "./QuestionSelector";
 import QuestionEditor from "./QuestionEditor";
+import useValidation from "../../hooks/useValidation";
 
 function EditTest() {
     const {
@@ -10,15 +11,44 @@ function EditTest() {
     } = useLocation();
     const {
         questionsQuery: { isLoading, data: questions },
+        editTest,
     } = useTest(test.id);
+    const { validateTest } = useValidation();
     const [index, setIndex] = useState(0);
-    const handleQuestionEdited = (question) => {
-        // TODO: call api
-        console.log(question);
+    const handleQuestionEdited = (edited) => {
+        const newTest = {
+            ...test,
+            questions: questions.map((q) => {
+                if (q.id === edited.id) {
+                    return edited;
+                }
+                return q;
+            }),
+        };
+        validateTest(test);
+        editTest.mutate(
+            { test: newTest },
+            {
+                onSuccess: () => {
+                    alert("테스트가 성공적으로 수정되었습니다.");
+                },
+            }
+        );
     };
     const handleQuestionDeleted = (index) => {
-        // TODO: call api
-        console.log(index);
+        const newTest = {
+            ...test,
+            questions: questions.filter((_, i) => i !== index),
+        };
+        validateTest(test);
+        editTest.mutate(
+            { test: newTest },
+            {
+                onSuccess: () => {
+                    alert("문제가 성공적으로 삭제되었습니다.");
+                },
+            }
+        );
     };
 
     if (isLoading) {

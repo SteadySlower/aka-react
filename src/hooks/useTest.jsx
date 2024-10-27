@@ -1,17 +1,19 @@
 import client from "../api/DummyClient";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
-const TEST_LIST_QUERY_KEY = ["test list"];
-
 function useTest(testId) {
     const queryClient = useQueryClient();
+
+    const TEST_LIST_QUERY_KEY = ["test list"];
+    const QUESTIONS_QUERY_KEY = ["questions", testId];
+
     const testListQuery = useQuery({
         queryKey: TEST_LIST_QUERY_KEY,
         queryFn: client.getTests,
         staleTime: 1000 * 60,
     });
     const questionsQuery = useQuery({
-        queryKey: ["questions", testId],
+        queryKey: QUESTIONS_QUERY_KEY,
         queryFn: () => client.getQuestions(testId),
         staleTime: 1000 * 60,
     });
@@ -27,8 +29,12 @@ function useTest(testId) {
     const deleteTest = useMutation({
         mutationFn: ({ id }) => client.deleteTest(id),
         onSuccess: () => queryClient.invalidateQueries(TEST_LIST_QUERY_KEY),
-    })
-    return { testListQuery, questionsQuery, answersQuery, addTest, deleteTest };
+    });
+    const editTest = useMutation({
+        mutationFn: ({ test }) => client.editTest(test),
+        onSuccess: () => queryClient.invalidateQueries(QUESTIONS_QUERY_KEY),
+    });
+    return { testListQuery, questionsQuery, answersQuery, addTest, deleteTest, editTest };
 }
 
 export default useTest;

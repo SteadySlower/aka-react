@@ -18,7 +18,11 @@ class DummyClient {
     }
 
     async deleteTest(id) {
-        console.log(`test deleted: ${id}`)
+        console.log(`test deleted: ${id}`);
+    }
+
+    async editTest(test) {
+        console.log(`test edited: ${JSON.stringify(test)}`);
     }
 }
 
