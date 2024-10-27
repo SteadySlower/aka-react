@@ -1,0 +1,23 @@
+
+.testList {
+    list-style-type: none;
+    width: 70vw;
+
+    li {
+        font-size: 1.5rem;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+        opacity: 0.5;
+    }
+
+    li:hover {
+        opacity: 1;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 1rem;
+    }
+}

@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import useTest from "../../hooks/useTest";
+import listStyle from "../../styles/list.module.scss";
+import Button from "../ui/Button";
 
 function TeacherTestList(props) {
     const navigate = useNavigate();
@@ -27,25 +29,24 @@ function TeacherTestList(props) {
 
     return (
         <div>
-            <ul>
+            <h2>테스트를 수정하거나 삭제할 수 있습니다.</h2>
+            <ul className={listStyle.testList}>
                 {tests.map((t) => (
                     <li key={t.id}>
-                        <div>
-                            {t.title}
-                            <button
+                        <span>{t.title}</span>
+                        <div className={listStyle.buttons}>
+                            <Button
+                                text="수정"
                                 onClick={() => {
                                     handleEditClick(t);
                                 }}
-                            >
-                                수정
-                            </button>
-                            <button
+                            />
+                            <Button
+                                text="삭제"
                                 onClick={() => {
                                     handleDeleteClick(t.id);
                                 }}
-                            >
-                                삭제
-                            </button>
+                            />
                         </div>
                     </li>
                 ))}

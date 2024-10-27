@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import useTest from "../../hooks/useTest";
+import listStyle from "../../styles/list.module.scss";
+import Button from "../ui/Button";
 
 function ResultList() {
     const navigate = useNavigate();
@@ -13,28 +15,25 @@ function ResultList() {
     }
 
     return (
-        <div>
-            <ul>
-                {tests.map((t) => (
-                    <li key={t.id}>
-                        <div>
-                            {t.title}
-                            {t.hasResult && (
-                                <button
-                                    onClick={() => {
-                                        navigate(`/result/${t.id}`, {
-                                            state: { test: t },
-                                        });
-                                    }}
-                                >
-                                    결과 보기
-                                </button>
-                            )}
+        <ul className={listStyle.testList}>
+            {tests.map((t) => (
+                <li key={t.id}>
+                    <span>{t.title}</span>
+                    {t.hasResult && (
+                        <div className={listStyle.buttons}>
+                            <Button
+                                text="결과 보기"
+                                onClick={() => {
+                                    navigate(`/result/${t.id}`, {
+                                        state: { test: t },
+                                    });
+                                }}
+                            />
                         </div>
-                    </li>
-                ))}
-            </ul>
-        </div>
+                    )}
+                </li>
+            ))}
+        </ul>
     );
 }
 
