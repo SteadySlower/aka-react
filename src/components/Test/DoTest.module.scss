@@ -1,0 +1,35 @@
+@use "../../styles/color" as color;
+.choices {
+    list-style-type: none;
+}
+
+%baseChoice {
+    display: flex;
+    font-size: 1.5rem;
+    gap: 0.7rem;
+    align-items: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.choice {
+    @extend %baseChoice;
+}
+
+.choiceChosen {
+    @extend %baseChoice;
+    color: color.$brandColor;
+}
+
+.choice:hover {
+    color: color.$brandColor;
+}
+
+.circle {
+    font-size: 2rem;
+}
+
+.circleChosen {
+    font-size: 2rem;
+    color: color.$brandColor;
+}
