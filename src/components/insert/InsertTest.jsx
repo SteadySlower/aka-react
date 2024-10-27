@@ -15,7 +15,7 @@ function InsertTest() {
     };
     const handleQuestionAdded = (question) => {
         setQuestions((questions) => [
-            ...questions,
+            ...questions,  
             {
                 ...question,
                 number: questions.length + 1,

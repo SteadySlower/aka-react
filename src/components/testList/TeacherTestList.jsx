@@ -9,7 +9,7 @@ function TeacherTestList(props) {
         deleteTest,
     } = useTest();
     const handleEditClick = (test) => {
-        navigate(`/edit/${test.id}`, { state: { test } });
+        navigate(`/edit/${test.id}`);
     };
     const handleDeleteClick = (id) => {
         deleteTest.mutate(

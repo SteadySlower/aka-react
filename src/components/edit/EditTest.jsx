@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import useTest from "../../hooks/useTest";
 import QuestionSelector from "./QuestionSelector";
 import QuestionEditor from "./QuestionEditor";
 import useValidation from "../../hooks/useValidation";
 
 function EditTest() {
+    const { id: testId } = useParams();
     const {
-        state: { test: toEdit },
-    } = useLocation();
-    const [test, setTest] = useState(toEdit);
-    const { editTest } = useTest(toEdit.id);
+        testQuery: { isLoading, data: test },
+    } = useTest(testId);
+    const { editTest } = useTest(testId);
     const { validateTest } = useValidation();
     const [index, setIndex] = useState(0);
     const handleQuestionEdited = (edited) => {
@@ -33,7 +33,6 @@ function EditTest() {
             {
                 onSuccess: () => {
                     alert("테스트가 성공적으로 수정되었습니다.");
-                    setTest(newTest);
                 },
             }
         );
@@ -53,13 +52,12 @@ function EditTest() {
             {
                 onSuccess: () => {
                     alert("문제가 성공적으로 삭제되었습니다.");
-                    setTest(newTest);
                 },
             }
         );
     };
 
-    if (test === undefined) {
+    if (isLoading) {
         return <p>is Loading...</p>;
     }
     return (

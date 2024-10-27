@@ -20,12 +20,19 @@ class FirebaseClient {
         });
     }
 
+    async getTest(id) {
+        return get(ref(database, `tests/${id}`)).then((snapshot) => {
+            return snapshot.val();
+        });
+    }
+
     async getAnswers(userId, testId) {
         return get(ref(database, `answers/${userId}/${testId}`)).then(
             (snapshot) => {
                 if (snapshot.exists()) {
                     return snapshot.val();
                 }
+                return {};
             }
         );
     }
