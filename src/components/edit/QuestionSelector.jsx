@@ -1,13 +1,13 @@
 import React from "react";
 
-function QuestionSelector({ questions }) {
+function QuestionSelector({ questions, toEditSelected, toDeleteSelected }) {
     return (
         <ul>
-            {questions.map((q) => (
+            {questions.map((q, i) => (
                 <li key={q.id}>
                     {`${q.number}번`}
-                    <button>수정</button>
-                    <button>삭제</button>
+                    <button onClick={() => toEditSelected(i)}>수정</button>
+                    <button onClick={() => toDeleteSelected(i)}>삭제</button>
                 </li>
             ))}
         </ul>
