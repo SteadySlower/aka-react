@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.hide {
+    opacity: 0;
+}
+
+.show {
+    color: red;
+    font-size: 0.7rem;
+}
