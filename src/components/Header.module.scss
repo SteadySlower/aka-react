@@ -1,5 +1,10 @@
 @use "../styles/color" as color;
 
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
 .homeLink {
     display: flex;
     place-items: center;
@@ -11,5 +16,24 @@
     .icon {
         font-size: 3rem;
         margin-right: 1rem;
+    }
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    place-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    
+    .link {
+        text-decoration: none;
+        color: color.$brandColor;
+        opacity: 0.5;
+    }
+
+    .link:hover {
+        opacity: 1.0;
     }
 }
