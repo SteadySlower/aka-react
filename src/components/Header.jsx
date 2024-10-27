@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
 import { FiBook } from "react-icons/fi";
 import styles from "./Header.module.scss";
+import Button from "./ui/Button";
 
 function Header(props) {
     const { user, logout } = useAuthContext();
@@ -28,7 +29,7 @@ function Header(props) {
                         Test Result
                     </Link>
                 )}
-                {user && <button onClick={logout}>Logout</button>}
+                {user && <Button text="Logout" onClick={logout} />}
             </nav>
         </header>
     );
