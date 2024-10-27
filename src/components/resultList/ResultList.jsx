@@ -22,7 +22,9 @@ function ResultList() {
                             {t.hasResult && (
                                 <button
                                     onClick={() => {
-                                        navigate(`/result/${t.id}`);
+                                        navigate(`/result/${t.id}`, {
+                                            state: { test: t },
+                                        });
                                     }}
                                 >
                                     결과 보기

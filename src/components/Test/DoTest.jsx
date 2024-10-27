@@ -2,22 +2,19 @@ import React, { useState } from "react";
 import Question from "./Question";
 import AnswerTable from "./AnswerTable";
 import { AnswerContextProvider } from "../../context/AnswerContext";
-import { useParams } from "react-router-dom";
-import useTest from "../../hooks/useTest";
+import { useLocation } from "react-router-dom";
 
 function DoTest() {
-    const { id: testId } = useParams();
     const {
-        questionsQuery: { isLoading, data: questions },
-    } = useTest(testId);
+        state: {
+            test: { questions },
+        },
+    } = useLocation();
     const [index, setIndex] = useState(0);
     const handleTableClick = (index) => {
         setIndex(index);
     };
 
-    if (isLoading) {
-        return <p>is Loading...</p>;
-    }
     return (
         <AnswerContextProvider>
             <AnswerTable

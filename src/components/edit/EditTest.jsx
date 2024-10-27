@@ -7,12 +7,12 @@ import useValidation from "../../hooks/useValidation";
 
 function EditTest() {
     const {
-        state: { test },
+        state: {
+            test,
+            test: { questions },
+        },
     } = useLocation();
-    const {
-        questionsQuery: { isLoading, data: questions },
-        editTest,
-    } = useTest(test.id);
+    const { editTest } = useTest(test.id);
     const { validateTest } = useValidation();
     const [index, setIndex] = useState(0);
     const handleQuestionEdited = (edited) => {
@@ -50,10 +50,6 @@ function EditTest() {
             }
         );
     };
-
-    if (isLoading) {
-        return <p>is Loading...</p>;
-    }
 
     return (
         <>

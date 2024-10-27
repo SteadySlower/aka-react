@@ -1,15 +1,19 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import useTest from "../../hooks/useTest";
 
 function Result() {
+    const {
+        state: {
+            test: { questions },
+        },
+    } = useLocation();
     const { id: testId } = useParams();
     const {
-        questionsQuery: { isLoading: questionsLoading, data: questions },
-        answersQuery: { isLoading: answersLoading, data: answers },
+        answersQuery: { isLoading, data: answers },
     } = useTest(testId);
 
-    if (questionsLoading || answersLoading) {
+    if (isLoading) {
         return <p>is Loading...</p>;
     }
 

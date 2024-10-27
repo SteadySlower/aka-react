@@ -2,13 +2,16 @@ import axios from "axios";
 
 class DummyClient {
     async getTests() {
-        return axios.get("/dummyData/tests.json").then((res) => res.data);
+        return Promise.all([
+            axios.get("/dummyData/tests.json").then((res) => res.data),
+            axios.get("/dummyData/questions.json").then((res) => res.data),
+        ]).then(([tests, questions]) =>
+            tests.map((test) => ({
+                ...test,
+                questions,
+            }))
+        );
     }
-
-    async getQuestions(id) {
-        return axios.get("/dummyData/questions.json").then((res) => res.data);
-    }
-
     async getAnswers(id) {
         return axios.get("/dummyData/answers.json").then((res) => res.data);
     }

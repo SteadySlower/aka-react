@@ -21,7 +21,9 @@ function StudentTestList() {
                             {t.title}
                             <button
                                 onClick={() => {
-                                    navigate(`/dotest/${t.id}`);
+                                    navigate(`/dotest/${t.id}`, {
+                                        state: { test: t },
+                                    });
                                 }}
                             >
                                 시험 시작
