@@ -35,7 +35,6 @@ class FirebaseClient {
                 return {};
             }),
         ]).then(([tests, answers]) => {
-            console.log(tests, answers, userId)
             return tests.map((t) => {
                 if (answers[t.id]) {
                     return { ...t, hasResult: true };
