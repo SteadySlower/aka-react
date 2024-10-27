@@ -1,8 +1,10 @@
-import client from "../api/DummyClient";
+import client from "../api/FirebaseClient";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useAuthContext } from "../context/AuthContext";
 
 function useTest(testId) {
     const queryClient = useQueryClient();
+    const { user } = useAuthContext();
 
     const TEST_LIST_QUERY_KEY = ["test list"];
 
@@ -12,8 +14,8 @@ function useTest(testId) {
         staleTime: 1000 * 60,
     });
     const answersQuery = useQuery({
-        queryKey: ["answersQuery", testId],
-        queryFn: () => client.getAnswers(testId),
+        queryKey: ["answersQuery", testId, user.id],
+        queryFn: () => client.getAnswers(user.id, testId),
         staleTime: 1000 * 60,
     });
     const addTest = useMutation({

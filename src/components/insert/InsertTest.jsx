@@ -14,19 +14,25 @@ function InsertTest() {
         setTitle(e.target.value);
     };
     const handleQuestionAdded = (question) => {
-        setQuestions((questions) => [...questions, question]);
+        setQuestions((questions) => [
+            ...questions,
+            {
+                ...question,
+                number: questions.length + 1,
+            },
+        ]);
     };
     const handleOnClick = () => {
-        const alertMessage = validateTest(test);
-        if (alertMessage) {
-            alert(alertMessage);
-            return;
-        }
         const newTest = {
             id: uuidv4(),
             title: title,
             questions: questions,
         };
+        const alertMessage = validateTest(newTest);
+        if (alertMessage) {
+            alert(alertMessage);
+            return;
+        }
         addTest.mutate(
             { test: newTest },
             {

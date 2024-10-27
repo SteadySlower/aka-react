@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import useTest from "../../hooks/useTest";
 import QuestionSelector from "./QuestionSelector";
@@ -7,30 +7,33 @@ import useValidation from "../../hooks/useValidation";
 
 function EditTest() {
     const {
-        state: {
-            test,
-            test: { questions },
-        },
+        state: { test: toEdit },
     } = useLocation();
-    const { editTest } = useTest(test.id);
+    const [test, setTest] = useState(toEdit);
+    const { editTest } = useTest(toEdit.id);
     const { validateTest } = useValidation();
     const [index, setIndex] = useState(0);
     const handleQuestionEdited = (edited) => {
         const newTest = {
             ...test,
-            questions: questions.map((q) => {
+            questions: test.questions.map((q) => {
                 if (q.id === edited.id) {
                     return edited;
                 }
                 return q;
             }),
         };
-        validateTest(test);
+        const alertMessage = validateTest(newTest);
+        if (alertMessage) {
+            alert(alertMessage);
+            return;
+        }
         editTest.mutate(
             { test: newTest },
             {
                 onSuccess: () => {
                     alert("테스트가 성공적으로 수정되었습니다.");
+                    setTest(newTest);
                 },
             }
         );
@@ -38,29 +41,37 @@ function EditTest() {
     const handleQuestionDeleted = (index) => {
         const newTest = {
             ...test,
-            questions: questions.filter((_, i) => i !== index),
+            questions: test.questions.filter((_, i) => i !== index),
         };
-        validateTest(test);
+        const alertMessage = validateTest(newTest);
+        if (alertMessage) {
+            alert(alertMessage);
+            return;
+        }
         editTest.mutate(
             { test: newTest },
             {
                 onSuccess: () => {
                     alert("문제가 성공적으로 삭제되었습니다.");
+                    setTest(newTest);
                 },
             }
         );
     };
 
+    if (test === undefined) {
+        return <p>is Loading...</p>;
+    }
     return (
         <>
             <h2>{test.title} 수정하기</h2>
             <QuestionSelector
-                questions={questions}
+                questions={test.questions}
                 toEditSelected={setIndex}
                 toDeleteSelected={handleQuestionDeleted}
             />
             <QuestionEditor
-                question={questions[index]}
+                question={test.questions[index]}
                 onQuestionEdited={handleQuestionEdited}
             />
         </>
