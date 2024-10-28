@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import InsertChoice from "../insert/InsertChoice";
 import useValidation from "../../hooks/useValidation";
+import style from "./EditTest.module.scss";
 
 function QuestionEditor({ question, onQuestionEdited }) {
     const [edited, setEdited] = useState(question);
@@ -12,22 +13,22 @@ function QuestionEditor({ question, onQuestionEdited }) {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setEdited((question) => ({ ...question, [name]: value }));
+        setEdited((prev) => ({ ...prev, [name]: value }));
     };
     const handleChoiceAdded = (choice) => {
-        if (question.choices.length === 4) {
+        if (edited.choices.length === 4) {
             alert("선택지는 4개까지만 추가할 수 있습니다.");
             return;
         }
-        setEdited((question) => ({
-            ...question,
-            choices: [...question.choices, choice],
+        setEdited((prev) => ({
+            ...prev,
+            choices: [...prev.choices, choice],
         }));
     };
     const handleChoiceDeleted = (index) => {
-        const newChoices = question.choices.filter((_, i) => i !== index);
-        setEdited((question) => ({
-            ...question,
+        const newChoices = edited.choices.filter((_, i) => i !== index);
+        setEdited((prev) => ({
+            ...prev,
             choices: newChoices,
         }));
     };
@@ -47,8 +48,8 @@ function QuestionEditor({ question, onQuestionEdited }) {
         onQuestionEdited(edited);
     };
     return (
-        <section>
-            <form onSubmit={handleSubmit}>
+        <section className={style.editorContainer}>
+            <form className={style.inputContainer} onSubmit={handleSubmit}>
                 <input
                     type="text"
                     name="instruction"
@@ -66,8 +67,8 @@ function QuestionEditor({ question, onQuestionEdited }) {
                 />
             </form>
             <InsertChoice
-                choices={question.choices}
-                answer={question.answer}
+                choices={edited.choices}
+                answer={edited.answer}
                 onChoiceAdded={handleChoiceAdded}
                 onChoiceDeleted={handleChoiceDeleted}
                 onAnswerSelected={handleAnswerSelected}
