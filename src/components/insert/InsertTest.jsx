@@ -6,9 +6,11 @@ import { v4 as uuidv4 } from "uuid";
 import useValidation from "../../hooks/useValidation";
 import style from "./InsertTest.module.scss";
 import Button from "../ui/Button";
+import { useNavigate } from "react-router-dom";
 
 function InsertTest() {
     const [title, setTitle] = useState("");
+    const navigate = useNavigate();
     const [questions, setQuestions] = useState([]);
     const { addTest } = useTest();
     const { validateTest } = useValidation();
@@ -40,8 +42,7 @@ function InsertTest() {
             {
                 onSuccess: () => {
                     alert("테스트가 성공적으로 추가되었습니다.");
-                    setTitle("");
-                    setQuestions([]);
+                    navigate(`/test`);
                 },
             }
         );
