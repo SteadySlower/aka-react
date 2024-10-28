@@ -11,37 +11,37 @@ import {
 } from "react-icons/tb";
 import style from "./DoTest.module.scss"
 
-function Mark({ number, isSelected }) {
+function Mark({ number, isSelected, color }) {
     switch (number) {
         case 1:
             return isSelected ? (
                 <TbCircleNumber1Filled className={style.circleChosen} />
             ) : (
-                <TbCircleNumber1 className={style.circle} />
+                <TbCircleNumber1 className={style.circle} style={color && {"color": color}} />
             );
         case 2:
             return isSelected ? (
                 <TbCircleNumber2Filled className={style.circleChosen} />
             ) : (
-                <TbCircleNumber2 className={style.circle} />
+                <TbCircleNumber2 className={style.circle} style={color && {"color": color}} />
             );
         case 3:
             return isSelected ? (
-                <TbCircleNumber3Filled className={style.circleChosen} />
+                <TbCircleNumber3Filled className={style.circleChosen} style={color && {"color": color}} />
             ) : (
-                <TbCircleNumber3 className={style.circle} />
+                <TbCircleNumber3 className={style.circle} style={color && {"color": color}} />
             );
         case 4:
             return isSelected ? (
-                <TbCircleNumber4Filled className={style.circleChosen} />
+                <TbCircleNumber4Filled className={style.circleChosen} style={color && {"color": color}} />
             ) : (
-                <TbCircleNumber4 className={style.circle} />
+                <TbCircleNumber4 className={style.circle} style={color && {"color": color}} />
             );
         default:
             return isSelected ? (
-                <TbCircleNumber1Filled className={style.circleChosen} />
+                <TbCircleNumber1Filled className={style.circleChosen} style={color && {"color": color}} />
             ) : (
-                <TbCircleNumber1Filled className={style.circle} />
+                <TbCircleNumber1Filled className={style.circle} style={color && {"color": color}} />
             );
     }
 }
