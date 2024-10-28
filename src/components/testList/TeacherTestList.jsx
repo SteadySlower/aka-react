@@ -11,7 +11,7 @@ function TeacherTestList(props) {
         deleteTest,
     } = useTest();
     const handleEditClick = (test) => {
-        navigate(`/edit/${test.id}`);
+        navigate(`/aka-react/edit/${test.id}`);
     };
     const handleDeleteClick = (id) => {
         deleteTest.mutate(

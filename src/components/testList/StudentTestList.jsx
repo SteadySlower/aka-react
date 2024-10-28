@@ -25,7 +25,7 @@ function StudentTestList() {
                             <Button
                                 text="시험 시작"
                                 onClick={() => {
-                                    navigate(`/dotest/${t.id}`, {
+                                    navigate(`/aka-react/dotest/${t.id}`, {
                                         state: { test: t },
                                     });
                                 }}

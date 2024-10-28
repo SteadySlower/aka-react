@@ -42,7 +42,7 @@ function InsertTest() {
             {
                 onSuccess: () => {
                     alert("테스트가 성공적으로 추가되었습니다.");
-                    navigate(`/test`);
+                    navigate(`/aka-react/test`);
                 },
             }
         );

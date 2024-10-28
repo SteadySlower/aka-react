@@ -8,7 +8,7 @@ function ProtectedRoute({ children, requireTeacher }) {
         return <p>Loading Auth</p>;
     }
     if (!user || (requireTeacher && !user.isTeacher)) {
-        return <Navigate to="/" replace />; // replace를 넣으면 history에서 빼줌!
+        return <Navigate to="/aka-react" replace />; // replace를 넣으면 history에서 빼줌!
     }
     return children;
 }

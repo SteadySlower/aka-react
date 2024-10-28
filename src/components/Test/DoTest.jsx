@@ -47,7 +47,7 @@ function DoTest() {
                 onSuccess: () => {
                     alert("결과가 성공적으로 전송되었습니다.");
                     clearAnswers();
-                    navigate(`/test`);
+                    navigate(`/aka-react/test`);
                 },
             }
         );

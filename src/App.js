@@ -14,13 +14,13 @@ import { AnswerContextProvider } from "./context/AnswerContext";
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: "/aka-react",
         element: <Home />,
         errorElement: <NotFound />,
         children: [
             { index: true, element: <Welcome /> },
             {
-                path: "/test",
+                path: "/aka-react/test",
                 element: (
                     <ProtectedRoute>
                         <TestList />
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
                 ),
             },
             {
-                path: "/dotest/:id",
+                path: "/aka-react/dotest/:id",
                 element: (
                     <ProtectedRoute>
                         <AnswerContextProvider>
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
                 ),
             },
             {
-                path: "/result",
+                path: "/aka-react/result",
                 element: (
                     <ProtectedRoute>
                         <ResultList />
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
                 ),
             },
             {
-                path: "/result/:id",
+                path: "/aka-react/result/:id",
                 element: (
                     <ProtectedRoute>
                         <Result />
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
                 ),
             },
             {
-                path: "/insert",
+                path: "/aka-react/insert",
                 element: (
                     <ProtectedRoute requireTeacher>
                         <InsertTest />
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
                 ),
             },
             {
-                path: "/edit/:id",
+                path: "/aka-react/edit/:id",
                 element: (
                     <ProtectedRoute requireTeacher>
                         <EditTest />

@@ -24,7 +24,7 @@ function ResultList() {
                             <Button
                                 text="결과 보기"
                                 onClick={() => {
-                                    navigate(`/result/${t.id}`, {
+                                    navigate(`/aka-react/result/${t.id}`, {
                                         state: { test: t },
                                     });
                                 }}
