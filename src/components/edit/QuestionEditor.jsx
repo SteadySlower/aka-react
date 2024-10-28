@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import InsertChoice from "../insert/InsertChoice";
 import useValidation from "../../hooks/useValidation";
 import style from "./EditTest.module.scss";
+import Button from "../ui/Button";
 
 function QuestionEditor({ question, onQuestionEdited }) {
     const [edited, setEdited] = useState(question);
@@ -73,7 +74,7 @@ function QuestionEditor({ question, onQuestionEdited }) {
                 onChoiceDeleted={handleChoiceDeleted}
                 onAnswerSelected={handleAnswerSelected}
             />
-            <button onClick={handleSubmit}>수정 완료</button>
+            <Button text="수정 완료" onClick={handleSubmit} />
         </section>
     );
 }
