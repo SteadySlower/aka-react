@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/aka-react/static/css/main.5d05cf14.css",
-    "main.js": "/aka-react/static/js/main.6ae32ead.js",
+    "main.js": "/aka-react/static/js/main.c3f7d712.js",
     "static/js/206.14f3a5a3.chunk.js": "/aka-react/static/js/206.14f3a5a3.chunk.js",
     "index.html": "/aka-react/index.html"
   },
   "entrypoints": [
     "static/css/main.5d05cf14.css",
-    "static/js/main.6ae32ead.js"
+    "static/js/main.c3f7d712.js"
   ]
 }
