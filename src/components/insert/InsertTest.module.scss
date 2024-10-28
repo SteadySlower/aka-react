@@ -1,0 +1,49 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    padding-right: 1rem;
+}
+
+.cardContainer {
+    width: 100%;
+    padding-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid;
+    p {
+        font-size: 1rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    .green {
+        color: green;
+    }
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.questionContainer {
+    display: flex;
+    flex-direction: column;
+
+    .inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .passage {
+        height: 30vh;
+    }
+}

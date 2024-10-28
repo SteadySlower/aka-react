@@ -4,6 +4,8 @@ import QuestionCard from "./QuestionCard";
 import useTest from "../../hooks/useTest";
 import { v4 as uuidv4 } from "uuid";
 import useValidation from "../../hooks/useValidation";
+import style from "./InsertTest.module.scss";
+import Button from "../ui/Button";
 
 function InsertTest() {
     const [title, setTitle] = useState("");
@@ -15,7 +17,7 @@ function InsertTest() {
     };
     const handleQuestionAdded = (question) => {
         setQuestions((questions) => [
-            ...questions,  
+            ...questions,
             {
                 ...question,
                 number: questions.length + 1,
@@ -46,7 +48,7 @@ function InsertTest() {
     };
 
     return (
-        <div>
+        <div className={style.container}>
             <ol>
                 {questions.map((q, i) => (
                     <li key={i}>
@@ -54,15 +56,20 @@ function InsertTest() {
                     </li>
                 ))}
             </ol>
-            <input
-                type="text"
-                value={title}
-                placeholder="테스트 제목"
-                required
-                onChange={handleChange}
-            />
-            <button onClick={handleOnClick}>새로운 시험지 등록 완료</button>
-            <InsertQuestion onQuestionAdded={handleQuestionAdded} />
+            <div className={style.inputContainer}>
+                <div className={style.titleContainer}>
+                    <h3>테스트 제목</h3>
+                    <input
+                        type="text"
+                        value={title}
+                        placeholder="테스트 제목"
+                        required
+                        onChange={handleChange}
+                    />
+                    <Button text="테스트 추가" onClick={handleOnClick} />
+                </div>
+                <InsertQuestion onQuestionAdded={handleQuestionAdded} />
+            </div>
         </div>
     );
 }

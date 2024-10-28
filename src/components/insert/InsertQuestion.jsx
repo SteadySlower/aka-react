@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import InsertChoice from "./InsertChoice";
 import { v4 as uuidv4 } from "uuid";
 import useValidation from "../../hooks/useValidation";
+import style from "./InsertTest.module.scss";
+import Button from "../ui/Button";
 
 function InsertQuestion({ onQuestionAdded }) {
     const [question, setQuestion] = useState({
@@ -53,10 +55,9 @@ function InsertQuestion({ onQuestionAdded }) {
     };
 
     return (
-        <section>
-            <h2>새로운 시험 문제 등록</h2>
-            <form onSubmit={handleSubmit}>
-                <button onClick={handleSubmit}>등록하기</button>
+        <section className={style.questionContainer}>
+            <h3>새로운 시험 문제 등록</h3>
+            <form onSubmit={handleSubmit} className={style.inputs}>
                 <input
                     type="text"
                     name="instruction"
@@ -71,6 +72,7 @@ function InsertQuestion({ onQuestionAdded }) {
                     placeholder="지문"
                     required
                     onChange={handleChange}
+                    className={style.passage}
                 />
             </form>
             <InsertChoice
@@ -80,6 +82,7 @@ function InsertQuestion({ onQuestionAdded }) {
                 onChoiceDeleted={handleChoiceDeleted}
                 onAnswerSelected={handleAnswerSelected}
             />
+            <Button text="문제 추가" onClick={handleSubmit} />
         </section>
     );
 }
