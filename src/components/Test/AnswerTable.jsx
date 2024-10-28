@@ -34,7 +34,7 @@ function AnswerTable({ ids, nowIndex, onClick }) {
                                 {id + 1}
                             </td>
                             <td key={id}>
-                                {getAnswer(id) ? (
+                                {getAnswer(id) !== undefined ? (
                                     <Mark number={getAnswer(id) + 1} />
                                 ) : (
                                     "-"

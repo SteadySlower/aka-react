@@ -5,6 +5,7 @@ import { useAnswerContext } from "../../context/AnswerContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import useTest from "../../hooks/useTest";
 import style from "./DoTest.module.scss";
+import Button from "../ui/Button";
 
 function DoTest() {
     const {
@@ -21,7 +22,25 @@ function DoTest() {
         setIndex(index);
     };
     const handleClick = () => {
-        // TODO: validate
+        const numOfAnswers = Object.values(answers).filter(
+            (value) => value !== undefined
+        ).length;
+        if (numOfAnswers < questions.length) {
+            if (
+                window.confirm(
+                    "아직 풀지 않은 문제가 있습니다. 정말 제출하시겠습니까?"
+                )
+            ) {
+                submitAnswer();
+            } else {
+                return;
+            }
+        } else {
+            submitAnswer();
+        }
+    };
+
+    const submitAnswer = () => {
         submitAnswers.mutate(
             { answers },
             {
@@ -33,10 +52,32 @@ function DoTest() {
             }
         );
     };
-
     return (
         <div className={style.container}>
-            <Question question={questions[index]} />
+            <div>
+                <div className={style.buttonContainer}>
+                    <Button text="답안 제출" onClick={handleClick} />
+                    {index !== questions.length - 1 && (
+                        <Button
+                            text="다음 문제"
+                            onClick={() => setIndex((prev) => prev + 1)}
+                        />
+                    )}
+                    {index !== 0 && (
+                        <Button
+                            text="이전 문제"
+                            onClick={() => setIndex((prev) => prev - 1)}
+                        />
+                    )}
+                </div>
+                <Question
+                    showPrevButton={index !== 0}
+                    showNextButton={index !== questions.length - 1}
+                    onPrevButtonClicked={() => setIndex((prev) => prev - 1)}
+                    onNextButtonClicked={() => setIndex((prev) => prev + 1)}
+                    question={questions[index]}
+                />
+            </div>
             <AnswerTable
                 ids={questions.map((q) => q.id)}
                 nowIndex={index}

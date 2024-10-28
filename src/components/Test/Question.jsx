@@ -2,6 +2,7 @@ import React from "react";
 import { useAnswerContext } from "../../context/AnswerContext";
 import style from "./DoTest.module.scss";
 import Mark from "./Mark";
+import Button from "../ui/Button";
 
 function Question({ question: { id, number, instruction, passage, choices } }) {
     const { getAnswer, setAnswer } = useAnswerContext();
@@ -15,7 +16,7 @@ function Question({ question: { id, number, instruction, passage, choices } }) {
                 <h3>
                     {number}. {instruction}
                 </h3>
-                <p>{passage}</p>
+                <p className={style.passage}>{passage}</p>
             </div>
             <ul>
                 {choices.map((choice, index) => (
