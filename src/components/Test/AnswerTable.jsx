@@ -21,19 +21,18 @@ function AnswerTable({ ids, nowIndex, onClick }) {
                 </thead>
                 <tbody>
                     {ids.map((id, i) => (
-                        <tr>
+                        <tr key={id}>
                             <td
                                 className={
                                     nowIndex === i
                                         ? style.questionCellChosen
                                         : style.questionCell
                                 }
-                                key={id}
                                 onClick={() => onClick(id)}
                             >
                                 {id + 1}
                             </td>
-                            <td key={id}>
+                            <td>
                                 {getAnswer(id) !== undefined ? (
                                     <Mark number={getAnswer(id) + 1} />
                                 ) : (
