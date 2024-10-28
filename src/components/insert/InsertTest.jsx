@@ -50,13 +50,13 @@ function InsertTest() {
 
     return (
         <div className={style.container}>
-            <ol>
+            <ul>
                 {questions.map((q, i) => (
                     <li key={i}>
                         <QuestionCard question={q} />
                     </li>
                 ))}
-            </ol>
+            </ul>
             <div className={style.inputContainer}>
                 <div className={style.titleContainer}>
                     <h3>테스트 제목</h3>

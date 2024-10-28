@@ -25,7 +25,7 @@ function InsertChoice({
     };
 
     return (
-        <div>
+        <div className={style.container}>
             <ul>
                 {choices &&
                     choices.map((c, i) => (

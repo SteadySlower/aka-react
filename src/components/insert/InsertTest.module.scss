@@ -3,21 +3,39 @@
     grid-template-columns: 1fr 1fr;
     height: 100vh;
     padding-right: 1rem;
+
+    ul {
+        list-style-type: none;
+    }
 }
 
 .cardContainer {
-    width: 100%;
+    width: 90%;
     padding-left: 0.5rem;
     margin-right: 0.5rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid;
-    p {
+    .title {
+        font-size: 2rem;
+    }
+    .passage {
         font-size: 1rem;
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
     .green {
         color: green;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        display: flex;
+        gap: 0.5rem;
+        font-size: 2rem;
+        margin-left: -2rem;
     }
 }
 

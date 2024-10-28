@@ -1,4 +1,5 @@
 import React from "react";
+import style from "./EditTest.module.scss";
 
 function QuestionSelector({ questions, toEditSelected, toDeleteSelected }) {
     return (

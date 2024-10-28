@@ -4,6 +4,7 @@ import useTest from "../../hooks/useTest";
 import QuestionSelector from "./QuestionSelector";
 import QuestionEditor from "./QuestionEditor";
 import useValidation from "../../hooks/useValidation";
+import style from "./EditTest.module.scss"
 
 function EditTest() {
     const { id: testId } = useParams();
@@ -63,15 +64,17 @@ function EditTest() {
     return (
         <>
             <h2>{test.title} 수정하기</h2>
-            <QuestionSelector
-                questions={test.questions}
-                toEditSelected={setIndex}
-                toDeleteSelected={handleQuestionDeleted}
-            />
-            <QuestionEditor
-                question={test.questions[index]}
-                onQuestionEdited={handleQuestionEdited}
-            />
+            <div className={style.container}>
+                <QuestionSelector
+                    questions={test.questions}
+                    toEditSelected={setIndex}
+                    toDeleteSelected={handleQuestionDeleted}
+                />
+                <QuestionEditor
+                    question={test.questions[index]}
+                    onQuestionEdited={handleQuestionEdited}
+                />
+            </div>
         </>
     );
 }

@@ -7,12 +7,12 @@ function QuestionCard({
 }) {
     return (
         <div className={style.cardContainer}>
-            <h6>
+            <p className={style.title}>
                 {`${number}. `}
                 {instruction}
-            </h6>
-            <p>{passage}</p>
-            <ol>
+            </p>
+            <p className={style.passage}>{passage}</p>
+            <ul>
                 {choices.map((c, i) => (
                     <li key={i}>
                         <Mark
@@ -24,7 +24,7 @@ function QuestionCard({
                         </span>
                     </li>
                 ))}
-            </ol>
+            </ul>
         </div>
     );
 }
