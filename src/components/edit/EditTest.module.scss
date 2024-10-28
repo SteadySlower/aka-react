@@ -4,3 +4,28 @@
     height: 100vh;
     padding-right: 1rem;
 }
+
+.selectorContainer {
+    padding-right: 1rem;
+
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        display: flex;
+        gap: 0.7rem;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        justify-content: space-between;
+
+        .buttonContainer {
+            display: flex;
+            gap: 0.5rem;
+        }
+    }
+
+    span {
+        font-size: 1.5rem;
+    }
+}
